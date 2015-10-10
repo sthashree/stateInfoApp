@@ -1,5 +1,6 @@
 * {
 	font-size: 12px;
+    text-align: left;
 }
 
 body {
@@ -21,6 +22,7 @@ ul{
 
 p{
     white-space: normal;;
+    margin-top: 10px
 }
 
 pre {
@@ -36,12 +38,15 @@ img {
 
 label {
     width: 200px;
-    float: left;
     text-align: right;
     padding-right: 20px; 
 }
 a {
     cursor: pointer;
+}
+
+div {
+    text-align: left;
 }
 
 table, th , td {
@@ -61,6 +66,12 @@ table tr:nth-child(even) {
 .highlighted {
     background: #000;
     color: #fff;
+}
+
+.span12{
+    -moz-box-shadow: 0 0 2px black;
+    -webkit-box-shadow: 0 0 2px black;
+    box-shadow: 0 0 2px black;
 }
 
 
