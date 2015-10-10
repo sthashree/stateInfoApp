@@ -1,0 +1,52 @@
+
+<div class="jumbotron text-center">
+	<h3> {{title}} </h3>
+	<section ng-controller="stateController">
+		<ul class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+			<li ng-repeat="state in states" ng-class="{'highlighted': state.highlightClass && selectedState == state}" >
+				<span > <a ng-click="stateDetail(state)" ng-dblclick="toggleCLick(state)"  >{{state.state}}</a></span>
+			</li>
+		</ul>	
+	  	<div ng-show="selectedState && isStateselected" id="stateDetail" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+		    <h3>{{selectedState.state}}</h3>
+
+		    <div ng-class="{'alert-success': matchPopulation == true,'alert-warning': matchPopulation == false}" > 
+		    	<label  > Population </label> <span>{{selectedState.population}}</span>
+		    </div>
+		    <div > 
+		    	<label  > No. of Counties </label> <span>{{selectedState.counties}}</span>
+		    </div>
+		    <section id="counties">
+		    	<table>
+		    		<thead>
+		    			<tr>
+		    				<th> County Name </th>
+		    				<th> Population </th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    			<tr ng-repeat="county in selectedState.countydetails"  ng-init="addPopulation(county.population)">
+		    				<td> {{county.county}} </td>
+		    				<td> {{county.population}}</td>
+	    
+		    			</tr>
+		    		</tbody>
+		    	</table>
+		    <section>	
+		    <div>
+		    	<label> Sum of county Populations: </label>
+		    	{{sumPopulation}}
+		    </div>				
+		</div>
+		<ul class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+			<p><input type="text" ng-model="search"></p>
+			<li ng-repeat="state in states  | filter:search:strict" ng-click="stateDetail(state)"  ng-class="{'highlighted': state.highlightClass && selectedState == state}">
+				<span > <a ng-click="stateDetail(state)" ng-dblclick="toggleCLick(state)"  >{{state.state}}</a></span>
+			</li>
+		</ul>
+
+		<div class="clearfix"> &nbsp; </div>
+
+	</section>
+</div>
+

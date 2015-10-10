@@ -1,0 +1,17 @@
+<div class="jumbotron text-center">
+   <div ng-controller="ProductController" class="productList list-group-item"> 
+    	<h3>Featured Products</h3>
+		<div class="col-lg-6 col-md-6 col=sm-12 col-xs-12 productDetail " ng-repeat="product in products track by $index">
+			<div class="span12">
+				<span class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<img src="images/product/{{product.images}}" height="120"/>
+				</span>
+				<h3> {{product.name}}</h3>
+				<h4>  {{product.price  | currency}} </h4>
+				<p> {{product.description}}</p>
+				<button ng-show="product.can_purchase" class="text-right btn btn-info"> Add to Cart </button>
+			</div>	
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
